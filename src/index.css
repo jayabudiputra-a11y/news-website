@@ -1,24 +1,6 @@
-@tailwind base;
-@tailwind components;
-@tailwind utilities;
+@import "tailwindcss";
+@plugin "flowbite";
 
-@layer base {
-  body {
-    @apply bg-gray-50 text-gray-900;
-  }
-}
-
-@layer components {
-  .animate-marquee {
-    animation: marquee 20s linear infinite;
-  }
-}
-
-@keyframes marquee {
-  0% {
-    transform: translateX(0%);
-  }
-  100% {
-    transform: translateX(-100%);
-  }
+body {
+  @apply bg-gray-50 text-gray-900;
 }

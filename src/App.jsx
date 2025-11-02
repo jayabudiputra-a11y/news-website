@@ -1,18 +1,29 @@
-import { db } from "./services/firebase";
+// src/App.jsx
+import { BrowserRouter, Routes, Route } from 'react-router-dom';
+import Layout from './components/layout/Layout';
+import Home from './pages/Home';
+import Category from './pages/Category';
+import NewsDetail from './pages/NewsDetail';
+import Search from './pages/Search';
+import Bookmarks from './pages/Bookmarks';
+import About from './pages/About';
+import Contact from './pages/Contact';
 
 function App() {
-  console.log("Firestore terhubung:", db); // Tes koneksi Firebase
-
   return (
-    <div className="flex flex-col items-center justify-center min-h-screen space-y-6 bg-gray-50">
-      <div className="text-4xl font-bold text-blue-600">
-        Tailwind Sudah Aktif 🎉
-      </div>
-
-      <div className="text-2xl font-semibold text-green-600">
-        Firebase Sudah Terhubung 🔥
-      </div>
-    </div>
+    <BrowserRouter>
+      <Routes>
+        <Route path="/" element={<Layout />}>
+          <Route index element={<Home />} />
+          <Route path="category/:categoryId" element={<Category />} />
+          <Route path="news/:uuid" element={<NewsDetail />} />
+          <Route path="search" element={<Search />} />
+          <Route path="bookmarks" element={<Bookmarks />} />
+          <Route path="about" element={<About />} />
+          <Route path="contact" element={<Contact />} />
+        </Route>
+      </Routes>
+    </BrowserRouter>
   );
 }
 
